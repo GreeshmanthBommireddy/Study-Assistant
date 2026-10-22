@@ -19,10 +19,11 @@ question_types = {
 def question_generator(question, persona):
     system_prompt = question_types[persona],
     response = client.model.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-3.5-flash",
         config=types.GenerateContentConfig(
             system_instruction=system_prompt,
-            temperature=0.4     ),
+            temperature=0.4,
+        max_output_tokens=2500),
         contents=question,
     )
     return response.text
