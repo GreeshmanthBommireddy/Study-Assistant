@@ -18,7 +18,7 @@ question_types = {
 
 def question_generator(question, persona):
     system_prompt = question_types[persona],
-    response = client.model.generate_content(
+    response = client.models.generate_content(
         model="gemini-3.5-flash",
         config=types.GenerateContentConfig(
             system_instruction=system_prompt,
